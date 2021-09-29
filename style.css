@@ -1,0 +1,130 @@
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+canvas {
+    display: block;
+}
+
+#loader {
+    width: 100%;
+    height: 100vh;
+    background-image: url("/images/loadingBg.jpg");
+    background-size: cover;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+#loaderProgress {
+    position: absolute;
+    width: 100%;
+    top: 40%;
+    color: #fff;
+    font-size: 2rem;
+    text-align: center;
+    transition: 1s all;
+}
+
+#tip {
+    position: absolute;
+    width: 50%;
+    left: 48%;
+    top: 35%;
+    color: #fff;
+    font-size: 1rem;
+    text-align: center;
+    writing-mode: vertical-lr;
+    display: none;
+}
+.upTip {
+    animation: 3s upTip infinite alternate;
+}
+
+@keyframes upTip {
+    0% {
+        transform: translate(0, 0);
+        opacity: 0.6;
+    }
+    100% {
+        transform: translate(0, -40px);
+        opacity: 1;
+    }
+}
+
+#stage > * {
+    margin: 0 auto;
+}
+
+#stage canvas {
+    width: 100%;
+    height: 100vh;
+}
+
+.audioBox {
+    display: none;
+}
+
+#musicIcon {
+    z-index: 9;
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    border: none;
+    background-size: cover;
+    background-color: transparent;
+}
+
+.mplay {
+    background-image: url("/images/musicon.png");
+    animation: r360 2s infinite linear;
+}
+
+.mpause {
+    background-image: url("/images/musicoff.png");
+}
+
+@keyframes r360 {
+    0% {
+        transform: rotate(0);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@media screen and (orientation: landscape) {
+    .wrapper {
+        width: 100vh;
+        height: 100vw;
+        transform: rotate(-90deg);
+        transform-origin: 50vh 50vh;
+    }
+
+    #loader,
+    #stage {
+        height: 100%;
+    }
+
+    #stage canvas {
+        height: 100%;
+    }
+}
+
+#ewm {
+    position: absolute;
+    left: 50%;
+    right: 50%;
+    top: 25%;
+    width: 200px;
+    height: 200px;
+    transform: translateX(-50%);
+    display: none;
+}
